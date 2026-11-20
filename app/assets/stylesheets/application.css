@@ -297,3 +297,59 @@ body {
     justify-content: center;
   }
 }
+
+
+/* Dkosmetics About and Contact Pages */
+
+.site-page {
+  min-height: 75vh;
+  background: #fff7f9;
+  padding: 90px 20px;
+}
+
+.site-page-container {
+  max-width: 850px;
+  margin: 0 auto;
+  background: white;
+  padding: 55px;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(132, 35, 66, 0.08);
+}
+
+.site-page-container h1 {
+  color: #842342;
+  font-size: 38px;
+  margin-bottom: 25px;
+}
+
+.site-page-content {
+  color: #444;
+  font-size: 17px;
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
+
+.site-page-button {
+  display: inline-block;
+  background: #842342;
+  color: white;
+  padding: 13px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-page-button:hover {
+  background: #64182f;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .site-page-container {
+    padding: 30px 22px;
+  }
+
+  .site-page-container h1 {
+    font-size: 30px;
+  }
+}
