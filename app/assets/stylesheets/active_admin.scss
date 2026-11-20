@@ -15,3 +15,75 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+
+/* DKOSMETICS ADMIN BRANDING */
+
+$dk-burgundy: #842342;
+$dk-pink: #f9e4ea;
+$dk-background: #fff7f8;
+
+body.active_admin {
+  background: $dk-background;
+  color: #563744;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body.active_admin #header {
+  background: #ffffff;
+  border-bottom: 1px solid #f0d9e0;
+  box-shadow: none;
+
+  h1.site_title {
+    color: $dk-burgundy;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  ul.tabs > li > a,
+  ul.header-item > li > a {
+    color: $dk-burgundy;
+    background: transparent;
+    text-shadow: none;
+  }
+}
+
+body.active_admin #title_bar {
+  background: $dk-pink;
+  border-bottom: 1px solid #f0d9e0;
+  box-shadow: none;
+
+  h2 {
+    color: $dk-burgundy;
+    font-weight: 700;
+  }
+}
+
+body.active_admin .panel {
+  background: #ffffff;
+  border: 1px solid #f0d9e0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(132, 35, 66, 0.05);
+
+  h3 {
+    background: $dk-pink;
+    color: $dk-burgundy;
+    padding: 16px;
+    font-weight: 700;
+    text-shadow: none;
+  }
+}
+
+body.active_admin a {
+  color: $dk-burgundy;
+}
+
+body.active_admin input[type="submit"],
+body.active_admin .button {
+  background: $dk-burgundy;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  text-shadow: none;
+}

@@ -1,6 +1,18 @@
+
 class AdminUser < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
+
+  validates :username, presence: true, uniqueness: true
+
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    username = conditions.delete(:username)
+
+    if username.present?
+      where(username: username).first
+    else
+      super(conditions)
+    end
+  end
 end
