@@ -19,11 +19,41 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+
+
+
+<header class="site-header">
+  <%= link_to "DKOSMETICS", root_path, class: "site-logo" %>
+
+  <nav class="site-nav">
+    <%= link_to "Home", root_path %>
+    <%= link_to "Shop", "#{root_path}#shop" %>
+    <%= link_to "About", "#" %>
+    <%= link_to "Contact", "#" %>
+  </nav>
+
+  <div class="header-actions">
+    <% if admin_user_signed_in? %>
+      <%= link_to "Admin Dashboard", admin_root_path,
+          class: "admin-login-button" %>
+    <% else %>
+      <%= link_to "Admin Login", new_admin_user_session_path,
+          class: "admin-login-button" %>
+    <% end %>
+  </div>
+</header>
+
+
     <%= yield %>
+
+    <footer class="site-footer">
+  <p>&copy; <%= Date.current.year %> Dkosmetics Beauty Studio & Cosmetics. All rights reserved.</p>
+
+</footer>
   </body>
 </html>

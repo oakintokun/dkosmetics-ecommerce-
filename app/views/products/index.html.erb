@@ -1,0 +1,52 @@
+
+<div class="storefront">
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">WELCOME TO DKOSMETICS</span>
+      <h1>Beauty Begins With You.</h1>
+      <p>
+        Discover your glow with our collection of
+        lip glosses, lip liners, lashes and beauty essentials.
+      </p>
+      <a href="#shop" class="shop-button">Shop Collection</a>
+    </div>
+  </section>
+
+  <section id="shop" class="shop-section">
+    <div class="section-heading">
+      <span class="eyebrow">THE BEAUTY EDIT</span>
+      <h2>Shop Our Collection</h2>
+      <p>Little luxuries for your everyday glow.</p>
+    </div>
+
+    <div class="product-grid">
+      <% @products.each do |product| %>
+        <article class="product-card">
+          <div class="product-image-placeholder">
+            <span>DK</span>
+            <small>DKOSMETICS</small>
+          </div>
+
+          <div class="product-info">
+            <span class="product-category">
+              <%= product.category.name %>
+            </span>
+
+            <h3><%= product.name %></h3>
+            <p><%= truncate(product.description, length: 90) %></p>
+
+            <div class="product-bottom">
+              <strong class="product-price">
+                <%= number_to_currency(product.price) %>
+              </strong>
+
+              <%= link_to "View Product",
+                  product_path(product),
+                  class: "view-product-button" %>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  </section>
+</div>

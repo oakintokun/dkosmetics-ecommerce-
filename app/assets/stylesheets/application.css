@@ -1,10 +1,299 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+
+/* DKOSMETICS BEAUTY STORE */
+
+:root {
+  --pink-light: #f8dce8;
+  --pink: #e887af;
+  --berry: #9f315f;
+  --cream: #fff8f5;
+  --gold: #c49a6c;
+  --dark: #402333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--dark);
+  font-family: Arial, sans-serif;
+}
+
+.storefront {
+  width: 100%;
+}
+
+.hero {
+  min-height: 440px;
+  padding: 90px 8%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    120deg,
+    #fff1f6 0%,
+    #f8dce8 55%,
+    #e887af 100%
+  );
+}
+
+.hero-content {
+  max-width: 620px;
+}
+
+.eyebrow {
+  color: var(--berry);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.1;
+  margin: 18px 0;
+  color: var(--berry);
+}
+
+.hero p {
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+.shop-button {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 15px 30px;
+  border-radius: 30px;
+  background: var(--berry);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.shop-button:hover {
+  background: #7c2148;
+}
+
+.shop-section {
+  max-width: 1300px;
+  margin: auto;
+  padding: 75px 5%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 40px;
+  color: var(--berry);
+  margin: 12px 0;
+}
+
+.section-heading p {
+  color: #806575;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(120, 50, 80, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image-placeholder {
+  height: 230px;
+  background: linear-gradient(145deg, #fce7ef, #e9a5c1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--berry);
+}
+
+.product-image-placeholder span {
+  font-family: Georgia, serif;
+  font-size: 65px;
+  font-weight: bold;
+}
+
+.product-image-placeholder small {
+  letter-spacing: 4px;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.product-category {
+  color: var(--berry);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-info h3 {
+  font-size: 17px;
+  margin: 12px 0;
+}
+
+.product-info p {
+  color: #806575;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 42px;
+}
+
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.product-price {
+  color: var(--berry);
+  font-size: 17px;
+}
+
+.view-product-button {
+  background: var(--pink-light);
+  color: var(--berry);
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.view-product-button:hover {
+  background: var(--berry);
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 65px 6%;
+  }
+
+  .shop-section {
+    padding: 50px 5%;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-bottom {
+    flex-wrap: wrap;
+  }
+}
+
+
+.site-header {
+  background: white;
+  padding: 22px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #f4d8e4;
+}
+
+.site-logo {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--berry);
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.site-nav a:hover {
+  color: var(--berry);
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    flex-direction: column;
+  }
+
+  .site-nav {
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.admin-login-button {
+  display: inline-block;
+  background: #9f315f;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.admin-login-button:hover {
+  background: #7c2148;
+}
+
+@media (max-width: 750px) {
+  .site-header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .header-actions {
+    justify-content: center;
+  }
+}

@@ -37,4 +37,4 @@ products.each do |name, description, price, stock, category_name|
   product.save!
 end
 
-puts "Seeded #{Category.count} categories and #{Product.count} products."
+puts "Seeded #{Category.count} categories and #{Product.count} products."AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
