@@ -12,7 +12,10 @@
     </div>
   </section>
 
-  <section id="shop" class="shop-section">
+  
+
+
+<section id="shop" class="shop-section">
     <div class="section-heading">
       <span class="eyebrow">THE BEAUTY EDIT</span>
       <h2>Shop Our Collection</h2>
@@ -49,4 +52,28 @@
       <% end %>
     </div>
   </section>
-</div>
+
+  
+<section class="shop-section" id="categories">
+  <div class="section-heading">
+    <span class="eyebrow">EXPLORE DKOSMETICS</span>
+    <h2>Shop by Category</h2>
+    <p>Find your favourite beauty essentials.</p>
+  </div>
+
+  <div class="category-grid">
+    <% @categories.each do |category| %>
+      <%= link_to category_path(category), class: "category-card" do %>
+        <div class="category-card-content">
+          <h3><%= category.name %></h3>
+
+          <p><%= category.products.count %> Products</p>
+
+          <span class="category-shop-button">
+            Shop Collection &rarr;
+          </span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</section>

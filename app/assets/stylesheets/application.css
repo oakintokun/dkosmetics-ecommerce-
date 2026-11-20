@@ -353,3 +353,113 @@ body {
     font-size: 30px;
   }
 }
+
+
+/* Dkosmetics Category Browsing */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 35px;
+}
+
+.category-card {
+  background: #fff7f9;
+  border: 1px solid #f3dce4;
+  border-radius: 14px;
+  padding: 30px;
+}
+
+.category-card h2 {
+  color: #842342;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.category-card p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 600px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Homepage Category Cards */
+
+#categories .category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1300px;
+  margin: 40px auto 0;
+}
+
+#categories .category-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  padding: 30px 20px;
+  background: #fff0f5;
+  border: 2px solid #f2cbd9;
+  border-radius: 18px;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
+}
+
+#categories .category-card:hover {
+  transform: translateY(-6px);
+  border-color: #a32959;
+  box-shadow: 0 12px 28px rgba(120, 25, 65, 0.12);
+}
+
+#categories .category-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+#categories .category-card h3 {
+  color: #842342;
+  font-size: 23px;
+  margin: 0;
+}
+
+#categories .category-card p {
+  color: #765362;
+  font-size: 15px;
+  margin: 0;
+}
+
+#categories .category-shop-button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #a32959;
+  color: white;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  #categories .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 550px) {
+  #categories .category-grid {
+    grid-template-columns: 1fr;
+  }
+}

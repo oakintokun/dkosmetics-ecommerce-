@@ -30,12 +30,15 @@
 <header class="site-header">
   <%= link_to "DKOSMETICS", root_path, class: "site-logo" %>
 
-  <nav class="site-nav">
-    <%= link_to "Home", root_path %>
-    <%= link_to "Shop", "#{root_path}#shop" %>
-    <%= link_to "About", "#" %>
-    <%= link_to "Contact", "#" %>
-  </nav>
+  
+<nav class="site-nav">
+  <%= link_to "Home", root_path %>
+  <%= link_to "Shop", "#{root_path}#shop" %>
+  <%= link_to "Categories", categories_path %>
+  <%= link_to "About", about_path %>
+  <%= link_to "Contact", contact_path %>
+</nav>
+
 
   <div class="header-actions">
     <% if admin_user_signed_in? %>

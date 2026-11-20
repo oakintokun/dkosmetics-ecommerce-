@@ -1,0 +1,54 @@
+
+<section class="shop-section">
+  <div class="section-heading">
+    <span class="eyebrow">DKOSMETICS COLLECTION</span>
+
+    <h1><%= @category.name %></h1>
+
+    <p><%= @category.description %></p>
+
+    <%= link_to "All Categories",
+        categories_path,
+        class: "site-page-button" %>
+  </div>
+
+  <div class="product-grid">
+    <% @products.each do |product| %>
+      <article class="product-card">
+
+        <div class="product-image-placeholder">
+          <% if product.image.attached? %>
+            <%= image_tag product.image,
+                alt: product.name,
+                style: "width: 100%; height: 100%; object-fit: cover;" %>
+          <% else %>
+            <span>DK</span>
+            <small>DKOSMETICS</small>
+          <% end %>
+        </div>
+
+        <div class="product-info">
+          <span class="product-category">
+            <%= product.category.name %>
+          </span>
+
+          <h3><%= product.name %></h3>
+
+          <p>
+            <%= truncate(product.description, length: 90) %>
+          </p>
+
+          <div class="product-bottom">
+            <strong class="product-price">
+              <%= number_to_currency(product.price) %>
+            </strong>
+
+            <%= link_to "View Product",
+                product_path(product),
+                class: "view-product-button" %>
+          </div>
+        </div>
+      </article>
+    <% end %>
+  </div>
+</section>
