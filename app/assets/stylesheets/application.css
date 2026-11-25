@@ -463,3 +463,67 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Product Search */
+
+.product-search {
+  max-width: 1100px;
+  margin: 0 auto 40px;
+  padding: 24px;
+  background: #fff0f5;
+  border: 1px solid #f2cbd9;
+  border-radius: 16px;
+}
+
+.product-search-form {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: 15px;
+  align-items: center;
+}
+
+.search-input,
+.search-category {
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #e5bccb;
+  border-radius: 8px;
+  background: white;
+  color: #842342;
+  font-size: 15px;
+}
+
+.search-button {
+  padding: 15px 30px;
+  background: #a32959;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background: #842342;
+}
+
+.search-summary {
+  color: #842342;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+@media (max-width: 700px) {
+  .product-search-form {
+    grid-template-columns: 1fr;
+  }
+}
