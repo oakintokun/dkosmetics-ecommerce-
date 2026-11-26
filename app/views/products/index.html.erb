@@ -12,11 +12,9 @@
     </div>
   </section>
 
-  
+  <section id="shop" class="shop-section">
+    <%= render "products/search_form" %>
 
-
-<section id="shop" class="shop-section">
-<%= render "products/search_form" %>
     <div class="section-heading">
       <span class="eyebrow">THE BEAUTY EDIT</span>
       <h2>Shop Our Collection</h2>
@@ -24,57 +22,31 @@
     </div>
 
     <div class="product-grid">
-      <% @products.each do |product| %>
-        <article class="product-card">
-          <div class="product-image-placeholder">
-            <span>DK</span>
-            <small>DKOSMETICS</small>
-          </div>
-
-          <div class="product-info">
-            <span class="product-category">
-              <%= product.category.name %>
-            </span>
-
-            <h3><%= product.name %></h3>
-            <p><%= truncate(product.description, length: 90) %></p>
-
-            <div class="product-bottom">
-              <strong class="product-price">
-                <%= number_to_currency(product.price) %>
-              </strong>
-
-              <%= link_to "View Product",
-                  product_path(product),
-                  class: "view-product-button" %>
-            </div>
-          </div>
-        </article>
-      <% end %>
+      <%= render @products %>
     </div>
   </section>
 
-  
-<section class="shop-section" id="categories">
-  <div class="section-heading">
-    <span class="eyebrow">EXPLORE DKOSMETICS</span>
-    <h2>Shop by Category</h2>
-    <p>Find your favourite beauty essentials.</p>
-  </div>
+  <section class="shop-section" id="categories">
+    <div class="section-heading">
+      <span class="eyebrow">EXPLORE DKOSMETICS</span>
+      <h2>Shop by Category</h2>
+      <p>Find your favourite beauty essentials.</p>
+    </div>
 
-  <div class="category-grid">
-    <% @categories.each do |category| %>
-      <%= link_to category_path(category), class: "category-card" do %>
-        <div class="category-card-content">
-          <h3><%= category.name %></h3>
+    <div class="category-grid">
+      <% @categories.each do |category| %>
+        <%= link_to category_path(category), class: "category-card" do %>
+          <div class="category-card-content">
+            <h3><%= category.name %></h3>
 
-          <p><%= category.products.count %> Products</p>
+            <p><%= category.products.count %> Products</p>
 
-          <span class="category-shop-button">
-            Shop Collection &rarr;
-          </span>
-        </div>
+            <span class="category-shop-button">
+              Shop Collection &rarr;
+            </span>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-</section>
+    </div>
+  </section>
+</div>
