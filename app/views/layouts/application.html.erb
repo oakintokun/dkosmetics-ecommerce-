@@ -41,6 +41,8 @@
 
 
   <div class="header-actions">
+  <%= link_to "Shopping Bag (#{(session[:cart] || {}).values.sum(&:to_i)})",
+    cart_path, class: "cart-nav-link" %>
     <% if admin_user_signed_in? %>
       <%= link_to "Admin Dashboard", admin_root_path,
           class: "admin-login-button" %>
@@ -51,6 +53,11 @@
   </div>
 </header>
 
+<% flash.each do |type, message| %>
+  <div class="flash-message flash-<%= type %>" role="status">
+    <%= message %>
+  </div>
+<% end %>
 
     <%= yield %>
 

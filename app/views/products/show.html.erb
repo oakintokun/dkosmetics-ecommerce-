@@ -31,6 +31,16 @@
     <%= @product.stock_quantity %>
   </p>
 
+  <% if @product.stock_quantity.positive? %>
+  <%= button_to "Add to Bag", add_cart_path,
+      method: :post,
+      params: { product_id: @product.id },
+      class: "add-to-cart-button" %>
+<% else %>
+  <span class="out-of-stock">Out of Stock</span>
+<% end %>
+
+
   <%= link_to "Back to Shop",
       root_path,
       class: "site-page-button" %>

@@ -1,0 +1,74 @@
+
+<div class="cart-page">
+  <h1>Your Shopping Bag</h1>
+
+  <% if @cart_items.any? %>
+    <div class="cart-layout">
+      <div class="cart-items">
+        <% @cart_items.each do |product| %>
+          <% quantity = session[:cart][product.id.to_s].to_i %>
+
+          <article class="cart-item">
+            <div class="cart-product-image">
+              <% if product.image.attached? %>
+                <%= image_tag product.image, alt: product.name %>
+              <% else %>
+                <span>DK</span>
+              <% end %>
+            </div>
+
+            <div class="cart-product-info">
+              <h3><%= link_to product.name, product_path(product) %></h3>
+              <p><%= number_to_currency(product.price) %> each</p>
+
+              <%= form_with url: update_item_cart_path, method: :patch, local: true do |f| %>
+                <%= f.hidden_field :product_id, value: product.id %>
+                <%= f.label :quantity, "Quantity" %>
+                <%= f.number_field :quantity,
+                    value: quantity,
+                    min: 1,
+                    max: product.stock_quantity,
+                    required: true %>
+                <%= f.submit "Update", class: "cart-update-button" %>
+              <% end %>
+
+              <%= button_to "Remove", remove_cart_path,
+                  method: :delete,
+                  params: { product_id: product.id },
+                  class: "cart-remove-button" %>
+            </div>
+
+            <strong class="cart-item-total">
+              <%= number_to_currency(product.price * quantity) %>
+            </strong>
+          </article>
+        <% end %>
+      </div>
+
+      <aside class="cart-summary">
+        <h2>Order Summary</h2>
+
+        <div class="cart-subtotal">
+          <span>Subtotal</span>
+          <strong><%= number_to_currency(@subtotal) %></strong>
+        </div>
+
+        <p>Taxes calculated at checkout.</p>
+
+        <button class="checkout-button" disabled>
+          Proceed to Checkout
+        </button>
+
+        <%= link_to "Continue Shopping", root_path,
+            class: "continue-shopping" %>
+      </aside>
+    </div>
+  <% else %>
+    <div class="empty-cart">
+      <h2>Your shopping bag is empty</h2>
+      <p>Discover your next beauty favourites.</p>
+      <%= link_to "Explore Our Collection", root_path,
+          class: "site-page-button" %>
+    </div>
+  <% end %>
+</div>
